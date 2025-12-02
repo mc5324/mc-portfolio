@@ -2,125 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-
-interface Project {
-  slug: string;
-  title: string;
-  company: string;
-  description: string;
-  impact: string[];
-  tags: string[];
-  protected?: boolean;
-}
-
-const projects: Project[] = [
-  {
-    slug: 'nucleus-platform',
-    title: 'Internal Scientific Data & Workflow Platform (LIMS)',
-    company: 'ArsenalBio',
-    description: 'Led product management for Nucleus, serving as both data lake and workflow orchestration system for CAR-T cell therapy development across wet lab and dry lab teams.',
-    impact: [
-      'Unified data from LIMS, Benchling, and computational tools',
-      'Built plate-centric workflow modeling for experiment tracking',
-      'Enabled cross-functional collaboration between scientists and engineers'
-    ],
-    tags: ['Product Management', 'Data Platform', 'LIMS', 'Stakeholder Management'],
-    protected: true
-  },
-  {
-    slug: 'cost-calculator',
-    title: 'Research Request Cost and Timeline Calculator',
-    company: 'ArsenalBio',
-    description: 'Built internal tool to help scientists estimate project costs and timelines for research proposals, improving planning and resource allocation.',
-    impact: [
-      'Streamlined research planning process',
-      'Improved budget forecasting accuracy',
-      'Enabled data-driven decision making for project prioritization'
-    ],
-    tags: ['Product Management', 'Financial Planning', 'Internal Tools'],
-    protected: false
-  },
-  {
-    slug: 'compute-migration',
-    title: 'Compute Platform Migration',
-    company: 'ArsenalBio',
-    description: 'Managed migration of computational infrastructure to support scalable analysis workflows for high-throughput screening data.',
-    impact: [
-      'Improved compute resource efficiency',
-      'Reduced analysis bottlenecks',
-      'Enabled larger-scale data processing'
-    ],
-    tags: ['Infrastructure', 'AWS', 'Data Engineering'],
-    protected: false
-  },
-  {
-    slug: 'support-bot',
-    title: 'Automated Support Bot (Atlassian Virtual Agent)',
-    company: 'ArsenalBio',
-    description: 'Developed AI-powered Slack support system to triage user questions and provide automated responses, reducing manual support workload.',
-    impact: [
-      'Reduced manual triage time by 40%',
-      'Improved response time for scientists',
-      'Built knowledge base for common issues'
-    ],
-    tags: ['AI/ML', 'Automation', 'User Support', 'Slack'],
-    protected: false
-  },
-  {
-    slug: 'partner-workflows',
-    title: 'Multi-Partner Workflow Enablement: Discovery → Model Development',
-    company: 'ArsenalBio',
-    description: 'Designed and implemented workflows to support partnerships with pharma companies, enabling seamless data handoffs from discovery to computational modeling.',
-    impact: [
-      'Standardized data packages for partner deliverables',
-      'Reduced integration time by 60%',
-      'Improved cross-organizational collaboration'
-    ],
-    tags: ['Workflow Design', 'Partnership Enablement', 'Data Integration'],
-    protected: true
-  },
-  {
-    slug: 'single-cell-automation',
-    title: 'Single Cell Printer & Automated iPSC Workflow Automation',
-    company: 'Synthego',
-    description: 'Led automation of clonal workflows using single cell printing technology and integrated with iPSC cell line development processes.',
-    impact: [
-      'Reduced manual touchpoints in cell engineering',
-      'Improved data consistency and traceability',
-      'Enabled higher throughput clonal selection'
-    ],
-    tags: ['Lab Automation', 'Process Engineering', 'Cell Engineering'],
-    protected: false
-  },
-  {
-    slug: 'zapier-automation',
-    title: 'Zapier Automation (Support)',
-    company: 'ArsenalBio',
-    description: 'Built Zapier workflows to automate support ticket routing and notifications, improving team response times.',
-    impact: [
-      'Automated ticket categorization',
-      'Reduced manual routing overhead',
-      'Improved support team efficiency'
-    ],
-    tags: ['Automation', 'Zapier', 'Support Operations'],
-    protected: false
-  },
-  {
-    slug: 'intern-mentorship',
-    title: 'Mentoring and Supporting Intern Projects',
-    company: 'ArsenalBio',
-    description: 'Mentored summer interns on technical projects, including data pipeline development and automation tool creation.',
-    impact: [
-      'Delivered multiple intern-led tools to production',
-      'Built mentorship framework for technical onboarding',
-      'Contributed to team knowledge sharing culture'
-    ],
-    tags: ['Mentorship', 'Leadership', 'Team Development'],
-    protected: false
-  }
-];
+import { getAllProjects } from '@/data/projects';
 
 export default function ProjectsShowcase() {
+  const projects = getAllProjects();
+
   return (
     <section id="projects" className="max-w-6xl mx-auto px-6 py-20 bg-[#f5f3f0]">
       <motion.div
@@ -170,7 +56,7 @@ export default function ProjectsShowcase() {
                 <div className="mb-4">
                   <p className="text-sm font-semibold text-gray-600 mb-2">Impact:</p>
                   <ul className="space-y-1">
-                    {project.impact.map((item, i) => (
+                    {project.impact.slice(0, 3).map((item, i) => (
                       <li key={i} className="text-sm text-gray-600">
                         • {item}
                       </li>
@@ -179,7 +65,7 @@ export default function ProjectsShowcase() {
                 </div>
                 
                 <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, i) => (
+                  {project.technologies.slice(0, 4).map((tag, i) => (
                     <span
                       key={i}
                       className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
