@@ -1,8 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface Project {
+  slug: string;
   title: string;
   company: string;
   description: string;
@@ -13,6 +15,7 @@ interface Project {
 
 const projects: Project[] = [
   {
+    slug: 'nucleus-platform',
     title: 'Internal Scientific Data & Workflow Platform (LIMS)',
     company: 'ArsenalBio',
     description: 'Led product management for Nucleus, serving as both data lake and workflow orchestration system for CAR-T cell therapy development across wet lab and dry lab teams.',
@@ -22,9 +25,10 @@ const projects: Project[] = [
       'Enabled cross-functional collaboration between scientists and engineers'
     ],
     tags: ['Product Management', 'Data Platform', 'LIMS', 'Stakeholder Management'],
-    protected: false
+    protected: true
   },
   {
+    slug: 'cost-calculator',
     title: 'Research Request Cost and Timeline Calculator',
     company: 'ArsenalBio',
     description: 'Built internal tool to help scientists estimate project costs and timelines for research proposals, improving planning and resource allocation.',
@@ -33,9 +37,11 @@ const projects: Project[] = [
       'Improved budget forecasting accuracy',
       'Enabled data-driven decision making for project prioritization'
     ],
-    tags: ['Product Management', 'Financial Planning', 'Internal Tools']
+    tags: ['Product Management', 'Financial Planning', 'Internal Tools'],
+    protected: false
   },
   {
+    slug: 'compute-migration',
     title: 'Compute Platform Migration',
     company: 'ArsenalBio',
     description: 'Managed migration of computational infrastructure to support scalable analysis workflows for high-throughput screening data.',
@@ -44,9 +50,11 @@ const projects: Project[] = [
       'Reduced analysis bottlenecks',
       'Enabled larger-scale data processing'
     ],
-    tags: ['Infrastructure', 'AWS', 'Data Engineering']
+    tags: ['Infrastructure', 'AWS', 'Data Engineering'],
+    protected: false
   },
   {
+    slug: 'support-bot',
     title: 'Automated Support Bot (Atlassian Virtual Agent)',
     company: 'ArsenalBio',
     description: 'Developed AI-powered Slack support system to triage user questions and provide automated responses, reducing manual support workload.',
@@ -55,9 +63,11 @@ const projects: Project[] = [
       'Improved response time for scientists',
       'Built knowledge base for common issues'
     ],
-    tags: ['AI/ML', 'Automation', 'User Support', 'Slack']
+    tags: ['AI/ML', 'Automation', 'User Support', 'Slack'],
+    protected: false
   },
   {
+    slug: 'partner-workflows',
     title: 'Multi-Partner Workflow Enablement: Discovery → Model Development',
     company: 'ArsenalBio',
     description: 'Designed and implemented workflows to support partnerships with pharma companies, enabling seamless data handoffs from discovery to computational modeling.',
@@ -70,6 +80,7 @@ const projects: Project[] = [
     protected: true
   },
   {
+    slug: 'single-cell-automation',
     title: 'Single Cell Printer & Automated iPSC Workflow Automation',
     company: 'Synthego',
     description: 'Led automation of clonal workflows using single cell printing technology and integrated with iPSC cell line development processes.',
@@ -78,9 +89,11 @@ const projects: Project[] = [
       'Improved data consistency and traceability',
       'Enabled higher throughput clonal selection'
     ],
-    tags: ['Lab Automation', 'Process Engineering', 'Cell Engineering']
+    tags: ['Lab Automation', 'Process Engineering', 'Cell Engineering'],
+    protected: false
   },
   {
+    slug: 'zapier-automation',
     title: 'Zapier Automation (Support)',
     company: 'ArsenalBio',
     description: 'Built Zapier workflows to automate support ticket routing and notifications, improving team response times.',
@@ -89,9 +102,11 @@ const projects: Project[] = [
       'Reduced manual routing overhead',
       'Improved support team efficiency'
     ],
-    tags: ['Automation', 'Zapier', 'Support Operations']
+    tags: ['Automation', 'Zapier', 'Support Operations'],
+    protected: false
   },
   {
+    slug: 'intern-mentorship',
     title: 'Mentoring and Supporting Intern Projects',
     company: 'ArsenalBio',
     description: 'Mentored summer interns on technical projects, including data pipeline development and automation tool creation.',
@@ -100,7 +115,8 @@ const projects: Project[] = [
       'Built mentorship framework for technical onboarding',
       'Contributed to team knowledge sharing culture'
     ],
-    tags: ['Mentorship', 'Leadership', 'Team Development']
+    tags: ['Mentorship', 'Leadership', 'Team Development'],
+    protected: false
   }
 ];
 
@@ -123,52 +139,57 @@ export default function ProjectsShowcase() {
         
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <motion.div
+            <Link 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+              href={`/work/${project.slug}`}
+              className="block h-full"
             >
-              <div className="mb-4">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-xl font-bold mb-1 flex-1">
-                    {project.title}
-                    {project.protected && (
-                      <span className="ml-2 text-xs text-gray-500">🔒</span>
-                    )}
-                  </h3>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer h-full"
+              >
+                <div className="mb-4">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-xl font-bold mb-1 flex-1">
+                      {project.title}
+                      {project.protected && (
+                        <span className="ml-2 text-xs text-gray-500">🔒</span>
+                      )}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-gray-500">{project.company}</p>
                 </div>
-                <p className="text-sm text-gray-500">{project.company}</p>
-              </div>
-              
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                {project.description}
-              </p>
-              
-              <div className="mb-4">
-                <p className="text-sm font-semibold text-gray-600 mb-2">Impact:</p>
-                <ul className="space-y-1">
-                  {project.impact.map((item, i) => (
-                    <li key={i} className="text-sm text-gray-600">
-                      • {item}
-                    </li>
+                
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+                
+                <div className="mb-4">
+                  <p className="text-sm font-semibold text-gray-600 mb-2">Impact:</p>
+                  <ul className="space-y-1">
+                    {project.impact.map((item, i) => (
+                      <li key={i} className="text-sm text-gray-600">
+                        • {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
+                    >
+                      {tag}
+                    </span>
                   ))}
-                </ul>
-              </div>
-              
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </motion.div>
