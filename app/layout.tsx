@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mary Chua | Product Manager Portfolio',
+    title: 'Mary Chua | PM Portfolio',
     description: 'Technical Product Manager with 8+ years experience in biotech and software engineering.',
     images: ['/mchualogo.png'],
   },
