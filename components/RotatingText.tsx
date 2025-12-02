@@ -8,7 +8,7 @@ interface RotatingTextProps {
   interval?: number;
 }
 
-export default function RotatingText({ words, interval = 2000 }: RotatingTextProps) {
+export default function RotatingText({ words, interval = 1800 }: RotatingTextProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

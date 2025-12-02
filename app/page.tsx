@@ -12,26 +12,32 @@ export default function Home() {
     <main className="min-h-screen bg-white text-gray-900">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xl font-semibold"
+            className="flex-shrink-0"
           >
-            MChua
+            <a href="#" className="flex items-center hover:opacity-80 transition-opacity">
+              <img
+                src="/mchualogo.png"
+                alt="Home"
+                className="w-16 h-16 object-contain"
+              />
+            </a>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex gap-8"
+            className="flex gap-6 flex-shrink-0"
           >
-            <a href="#about" className="hover:text-blue-600 transition-colors">About</a>
-            <a href="#experience" className="hover:text-blue-600 transition-colors">Experience</a>
-            <a href="#projects" className="hover:text-blue-600 transition-colors">Projects</a>
-            <a href="#contact" className="hover:text-blue-600 transition-colors">Contact</a>
+            <a href="#about" className="hover:text-blue-600 transition-colors text-lg whitespace-nowrap">About</a>
+            <a href="#experience" className="hover:text-blue-600 transition-colors text-lg whitespace-nowrap">Experience</a>
+            <a href="#projects" className="hover:text-blue-600 transition-colors text-lg whitespace-nowrap">Projects</a>
+            <a href="#contact" className="hover:text-blue-600 transition-colors text-lg whitespace-nowrap">Contact</a>
           </motion.div>
         </div>
       </nav>
@@ -72,7 +78,7 @@ export default function Home() {
           Get in touch
         </a>
         <a 
-          href="#experience"
+          href="#projects"
           className="px-6 py-3 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors"
         >
           View my work
@@ -115,20 +121,20 @@ export default function Home() {
                 repetitive tasks and improve data workflows.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Currently transitioning from biotech-specific roles to broader B2B SaaS 
-                opportunities, combining my deep domain expertise with full-stack development 
-                skills from Purdue University's bootcamp.
+                Currently brainstorming projects to build  (digital or physical) 🔨
+                
+
               </p>
             </div>
             
             <div>
               <h3 className="font-semibold mb-3">Skills & Technologies</h3>
               <div className="flex flex-wrap gap-2">
-                {['Product Management', 'LIMS Systems', 'API Integration', 'JavaScript', 
-                  'React', 'Node.js', 'Python', 'SQL', 'Workflow Automation'].map((skill) => (
+                {['Product/Program Management', ' Lab Automation', 'Python, SQL, R', 'JavaScript', 
+                  'Jira, Confluence, Smartsheet', 'Figma, Basalmiq, Lucidchart', 'Zapier', 'n8n', 'AWS'].map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-gray-100 rounded-full text-sm"
+                    className="px-3 py-1 bg-blue-50 rounded-full text-blue-700 text-sm"
                   >
                     {skill}
                   </span>
