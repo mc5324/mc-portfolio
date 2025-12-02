@@ -15,7 +15,7 @@ export default function ContactSection() {
       >
         <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
         <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-          I am always interested in learning about new technology, domains, and opportunities. 
+          I am always interested in learning about new technologies, domains, and opportunities. 
           Let's chat ☕!
         </p>
 
