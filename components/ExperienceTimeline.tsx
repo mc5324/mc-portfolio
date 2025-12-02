@@ -24,7 +24,7 @@ const experiences: ExperienceItem[] = [
     role: 'Senior Automation Engineer',
     period: 'Apr 2021 - Mar 2023',
     description: [
-      'Scaled lab automation infrastructure to increase T cell therapy screening throughput for partnership (Repetitive Stimulation Assay)'
+      'Lab automation and HT assay development for high-throughput T cell therapy screening in partnership programs (RSA and CSA CoCulture Assays)'
     ]
   },
   {
@@ -32,7 +32,7 @@ const experiences: ExperienceItem[] = [
     role: 'Automation Engineer',
     period: 'Nov 2020 - Apr 2021',
     description: [
-      'Scaled COVID-19 sample testing infrastructure w/ lab automation'
+      'COVID-19 sample processing w/ lab automation'
     ]
   },
   {
@@ -40,7 +40,7 @@ const experiences: ExperienceItem[] = [
     role: 'Research Associate > Process Engineer > Senior Production Process Engineer',
     period: 'Mar 2018 - Oct 2020',
     description: [
-      'Led cell engineering workflow development for CRISPR gene editing clonal selection' 
+      'Cell engineering workflow development for CRISPR gene editing clonal selection (iPSC and immortal cell lines' 
     ]
   },
   {
