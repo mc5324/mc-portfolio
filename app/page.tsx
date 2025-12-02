@@ -207,17 +207,33 @@ export default function Home() {
       <ProjectsShowcase />
       <ContactComponent />
       
+
       {/* Footer */}
       <footer className="border-t border-gray-100 mt-20">
-        <div className="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
-          <p className="text-gray-600">© 2024 Mary Chua</p>
-          <div className="flex gap-6">
-            <a href="https://linkedin.com/in/maryjechua" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
-              LinkedIn
-            </a>
-            <a href="https://github.com/mc5324" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
-              GitHub
-            </a>
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          {/* Tech Stack */}
+          <div className="text-center mb-6">
+            <p className="text-sm text-gray-500 mb-3">Built with</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium">React</span>
+              <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium">Next.js</span>
+              <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium">TypeScript</span>
+              <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium">Tailwind CSS</span>
+              <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium">Framer Motion</span>
+            </div>
+          </div>
+
+          {/* Copyright and Links */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-gray-100">
+            <p className="text-gray-600 text-sm">© 2024 Mary Chua</p>
+            <div className="flex gap-6">
+              <a href="https://linkedin.com/in/maryjechua" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors text-sm">
+                LinkedIn
+              </a>
+              <a href="https://github.com/mc5324" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors text-sm">
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
       </footer>
