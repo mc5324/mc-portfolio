@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Mary Chua | Product Manager Portfolio',
+  title: 'Mary Chua | Portfolio',
   description: 'Technical Product Manager bridging scientists and engineers to create internal tools that eliminate operational friction. 8+ years experience in biotech operations and software engineering.',
   openGraph: {
-    title: 'Mary Chua | Product Manager Portfolio',
+    title: 'Mary Chua | Portfolio',
     description: 'Technical Product Manager bridging scientists and engineers to create internal tools.',
     url: 'https://mc-portfolio-chi.vercel.app',
     siteName: 'Mary Chua Portfolio',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mary Chua | PM Portfolio',
+    title: 'Mary Chua | Portfolio',
     description: 'Technical Product Manager with 8+ years experience in biotech and software engineering.',
     images: ['/mchualogo.png'],
   },
