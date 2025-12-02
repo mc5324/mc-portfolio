@@ -1,4 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+The goal is to migrate away from Framer https://mjchua.framer.website/ to a custom coded React/Next.js site && host on vercel for free
+
 
 ## Getting Started
 
